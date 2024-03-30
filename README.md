@@ -1,5 +1,5 @@
 # React + Vite + Api
-LIVE: <a href="https://dictionary-genel-features.netlify.app/">My project<a/>
+LIVE: <a href="https://dictionarybyali-osman-de-v1.netlify.app/">My project<a/>
 
 <h1>My Project is simple Dictionary</h1>
 
