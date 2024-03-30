@@ -11,9 +11,7 @@ export default function Footer() {
 
 
   return (
-    <MDBFooter className='text-center text-white shadow-lg my-5' style={{
-      backgroundColor: "lightgray"
-    }}>
+    <MDBFooter className='text-center text-white shadow-lg my-5'>
       <MDBContainer className='p-4 pb-0'>
         <section className='mb-4'>
           <MDBBtn
@@ -80,7 +78,7 @@ export default function Footer() {
       <div className='text-center text-dark p-3'>
         © 2024 Copyright
         <a className='mx-1 text-dark'>
-          Dictionary
+          DICTIONARY
         </a>
       </div>
     </MDBFooter>

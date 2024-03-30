@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { MDBCard, MDBCardBody, MDBBtn, MDBInput } from 'mdb-react-ui-kit';
 import { fetchWord } from '../actions/fetchWords';
 import { useDispatch, useSelector } from 'react-redux';
@@ -9,17 +9,29 @@ function SearchCard() {
     const [placeHolder, setPlaceHolder] = useState("Word Here");
     const word = useSelector(state => state.word);
     const dispatch = useDispatch();
-    const error = word?.error
+    const error = word?.error;
+
+    useEffect(() => {
+        if (error && error === "Failed to fetch data") {
+            setColor("danger");
+            setPlaceHolder("You forgot something");
+        } else {
+            setColor("info");
+            setPlaceHolder("Word Here");
+        }
+    }, [error, word]);
 
     const handleChange = (e) => {
         setInput(e.target.value);
     };
 
     const handleClickOnSearch = () => {
-        if (input.trim() === "") {
+        if (input.trim() === "" && error === "Failed to fetch data") {
             setColor("danger");
             setPlaceHolder("You forgot something");
         } else {
+            setColor("info");
+            setPlaceHolder("Word Here");
             dispatch(fetchWord(input.trim()));
         }
     };
